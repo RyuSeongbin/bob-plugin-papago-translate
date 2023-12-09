@@ -1,16 +1,12 @@
 # bob-plugin-papago-translate
 
 
+## 效果
 
-
-# 效果
-
-
-https://github.com/RyuSeongbin/bob-plugin-papago-translate/assets/25927848/6d1e8887-257a-4abe-a012-be165490bbec
+![2023-12-10 00 44 47](https://github.com/RyuSeongbin/bob-plugin-papago-translate/assets/25927848/55a41df7-5fc7-44e4-96d7-15af2698ecfc)
 
 
 
-# 啊
 
 
 ps: 
