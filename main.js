@@ -1,6 +1,6 @@
 var config = require('./config.js');
 var utils = require('./utils.js');
-//test
+
 
 function supportLanguages() {
     return config.supportedLanguages.map(([standardLang]) => standardLang);
