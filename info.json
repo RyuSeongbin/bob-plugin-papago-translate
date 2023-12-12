@@ -1,6 +1,6 @@
 {
     "identifier": "com.bob-plugin-papago-translate",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "category": "translate",
     "name": "Papago",
     "summary": "papago韩语翻译",
