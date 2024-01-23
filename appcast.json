@@ -2,12 +2,19 @@
     "identifier": "com.bob-plugin-papago-translate",
     "versions": [
         {
-            "version": "0.1.0",
+            "version": "1.0.0",
             "desc": "初始版本",
-            "sha256": "5ec845ee2b60ac931ecac6f56c6a74ee16928ea4a8a4c98e2e85f09316b5ac1e",
+            "sha256": "c4ae63165935185215bba99433c5e8196de5886e6faa60a91188bed63d71d9bb",
             "url": "https://raw.githubusercontent.com/ripperhe/test/master/bobplugin/test_0.1.0.bobplugin",
             "minBobVersion": "0.5.0",
-            "timestamp": 1682948700000
+            "timestamp": 1705985854
+        },
+        {
+            "version": "v1.0.0",
+            "desc": "Support access token.",
+            "sha256": "d0b69bfe2215b597bb53bb89cb250b20d4a2a65712ac7009b15296d30da00bd6",
+            "url": "https://github.com/RyuSeongbin/bob-plugin-papago-translate/releases/download/vv1.0.0/bob-plugin-papago-translate-v1.0.0.bobplugin",
+            "minBobVersion": "0.5.0"
         }
     ]
 }

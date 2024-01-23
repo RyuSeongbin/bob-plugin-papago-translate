@@ -1,13 +1,13 @@
 {
     "identifier": "com.bob-plugin-papago-translate",
-    "version": "0.1.0",
+    "version": "1.0.0",
     "category": "translate",
     "name": "Papago",
     "summary": "papago韩语翻译",
     "icon": "icon.png",
     "author": "Seongbin <seongbin.ryu@hotmail.com>",
     "homepage": "https://github.com/RyuSeongbin/bob-plugin-papago-translate",
-    "appcast":  "",
+    "appcast":  "https://github.com/RyuSeongbin/bob-plugin-papago-translate/blob/master/appcast.json",
     "minBobVersion": "0.5.0",
     "options": [
         {
