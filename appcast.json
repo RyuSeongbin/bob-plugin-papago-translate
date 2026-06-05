@@ -1,20 +1,19 @@
 {
-    "identifier": "com.bob-plugin-papago-translate",
-    "versions": [
-        {
-            "version": "1.0.0",
-            "desc": "初始版本",
-            "sha256": "c4ae63165935185215bba99433c5e8196de5886e6faa60a91188bed63d71d9bb",
-            "url": "https://raw.githubusercontent.com/ripperhe/test/master/bobplugin/test_0.1.0.bobplugin",
-            "minBobVersion": "0.5.0",
-            "timestamp": 1705985854
-        },
-        {
-            "version": "v1.0.0",
-            "desc": "Support access token.",
-            "sha256": "d0b69bfe2215b597bb53bb89cb250b20d4a2a65712ac7009b15296d30da00bd6",
-            "url": "https://github.com/RyuSeongbin/bob-plugin-papago-translate/releases/download/vv1.0.0/bob-plugin-papago-translate-v1.0.0.bobplugin",
-            "minBobVersion": "0.5.0"
-        }
-    ]
+  "identifier": "com.bob-plugin-papago-translate",
+  "versions": [
+    {
+      "version": "1.0.0",
+      "desc": "初始版本",
+      "sha256": "d0b69bfe2215b597bb53bb89cb250b20d4a2a65712ac7009b15296d30da00bd6",
+      "url": "https://github.com/RyuSeongbin/bob-plugin-papago-translate/releases/download/v1.0.0/bob-plugin-papago-translate-v1.0.0.bobplugin",
+      "minBobVersion": "0.5.0"
+    },
+    {
+      "version": "1.1.0",
+      "desc": "Update Papago Translation API endpoint and credentials options.",
+      "sha256": "1b6fdb97106c6c8e03e4a842774fa1676c5d51982333a84eeb5fe61960f610df",
+      "url": "https://github.com/RyuSeongbin/bob-plugin-papago-translate/releases/download/v1.1.0/bob-plugin-papago-translate-1.1.0.bobplugin",
+      "minBobVersion": "1.8.0"
+    }
+  ]
 }

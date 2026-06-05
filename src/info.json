@@ -1,27 +1,34 @@
 {
     "identifier": "com.bob-plugin-papago-translate",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "category": "translate",
     "name": "Papago",
-    "summary": "papago韩语翻译",
+    "summary": "Papago 翻译",
     "icon": "icon.png",
     "author": "Seongbin <seongbin.ryu@hotmail.com>",
     "homepage": "https://github.com/RyuSeongbin/bob-plugin-papago-translate",
-    "appcast":  "https://github.com/RyuSeongbin/bob-plugin-papago-translate/blob/master/appcast.json",
-    "minBobVersion": "0.5.0",
+    "appcast":  "https://raw.githubusercontent.com/RyuSeongbin/bob-plugin-papago-translate/master/appcast.json",
+    "minBobVersion": "1.8.0",
     "options": [
         {
-            "identifier": "desc",
-            "type": "menu",
-            "title": "描述",
-            "defaultValue": "Seongbin",
-            "menuValues": [
-              {
-                "title": "papago韩语翻译;",
-                "value": "Seongbin"
-              }
-            ],
-            "desc":"papago韩语翻译;"
+            "identifier": "client_id",
+            "type": "text",
+            "title": "Client ID",
+            "textConfig": {
+                "type": "visible",
+                "placeholderText": "Naver Cloud Papago Client ID"
+            },
+            "desc": "获取路径：Naver Cloud Platform Console > Services > AI Services > Papago Translation > APIs > Register Application，创建应用后点 Credentials 查看。注意不是 NCP 账号的 Access Key。"
+        },
+        {
+            "identifier": "client_secret",
+            "type": "text",
+            "title": "Client Secret",
+            "textConfig": {
+                "type": "secure",
+                "placeholderText": "Naver Cloud Papago Client Secret"
+            },
+            "desc": "同一个 Credentials 弹窗里的 Client Secret，对应请求头 X-NCP-APIGW-API-KEY。不要公开提交到仓库。"
         }
     ]
 }
