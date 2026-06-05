@@ -32,6 +32,8 @@ Naver Cloud 当前价格页未列出 Papago Translation API 的固定免费额�
 
 费用可能随区域和 Naver Cloud 政策调整，请以官方价格页为准：<https://www.ncloud.com/charge/price/sg>
 
+友情提示：Naver Cloud 可能会向新注册用户提供 `100,000 KRW` 免费使用 Credit 活动，通常需要先注册支付方式后再到活动页申请，Credit 可用于抵扣符合条件的 Naver Cloud 服务费用。该活动的资格、有效期、适用服务和申请入口可能会变化，请以 Naver Cloud 官方活动页和控制台 `Billing > Credit Management` 中的实际显示为准。即使有 Credit，也建议用完插件后及时停用不需要的 Papago Translation Application 或取消服务订阅，避免后续产生不必要费用。
+
 
 
 
