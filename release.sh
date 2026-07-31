@@ -1,30 +1,79 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# 提取版本号，兼容 refs/tags/v1.1.0、v1.1.0、1.1.0
+if [[ $# -lt 1 || $# -gt 2 ]]; then
+    echo "Usage: $0 <version> [description]" >&2
+    exit 1
+fi
+
+for command in jq shasum zip; do
+    if ! command -v "$command" >/dev/null 2>&1; then
+        echo "Missing required command: $command" >&2
+        exit 1
+    fi
+done
+
+# 兼容 refs/tags/v1.1.0、v1.1.0、1.1.0
 version=${1#refs/tags/}
 version=${version#v}
+description=${2:-"Maintenance release."}
 
-# 创建插件压缩包（将 src 目录下的所有文件打包）
-zip -r -j "bob-plugin-papago-translate-$version.bobplugin" src/*
+if [[ ! "$version" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+    echo "Invalid version: $version (expected x.y.z)" >&2
+    exit 1
+fi
 
-# 计算插件压缩包的 SHA256 哈希
-sha256=$(shasum -a 256 "bob-plugin-papago-translate-$version.bobplugin" | cut -d ' ' -f 1)
-echo "$sha256"
+json_file="appcast.json"
+info_file="src/info.json"
+source_version=$(jq -r '.version' "$info_file")
 
-# 构建下载链接
-download_link="https://github.com/RyuSeongbin/bob-plugin-papago-translate/releases/download/v$version/bob-plugin-papago-translate-$version.bobplugin"
+if [[ "$source_version" != "$version" ]]; then
+    echo "Version mismatch: $info_file is $source_version, requested $version" >&2
+    exit 1
+fi
 
-# 构建新版本信息的 JSON 字符串
-new_version="{\"version\": \"$version\", \"desc\": \"Update Papago Translation API endpoint and credentials options.\", \"sha256\": \"$sha256\", \"url\": \"$download_link\", \"minBobVersion\": \"1.8.0\"}"
+if jq -e --arg version "$version" '.versions[] | select(.version == $version)' "$json_file" >/dev/null; then
+    echo "Version $version already exists in $json_file" >&2
+    exit 1
+fi
 
-# 读取并更新 JSON 文件
-json_file='appcast.json'
-updated_json=$(jq --argjson new_version "$new_version" '.versions += [$new_version]' "$json_file")
+archive_name="bob-plugin-papago-translate-$version.bobplugin"
+archive_path="dist/$archive_name"
+download_url="https://github.com/RyuSeongbin/bob-plugin-papago-translate/releases/download/v$version/$archive_name"
 
-# 将更新后的 JSON 字符串写回 JSON 文件
-printf '%s\n' "$updated_json" > "$json_file"
+if [[ -e "$archive_path" ]]; then
+    echo "Archive already exists: $archive_path" >&2
+    exit 1
+fi
 
-# 创建 dist 目录并移动所有插件压缩包到该目录
 mkdir -p dist
-mv *.bobplugin dist
+zip -j -X "$archive_path" \
+    src/config.js \
+    src/icon.png \
+    src/info.json \
+    src/main.js \
+    src/utils.js
+
+sha256=$(shasum -a 256 "$archive_path" | cut -d ' ' -f 1)
+temp_json=$(mktemp "${TMPDIR:-/tmp}/papago-appcast.XXXXXX")
+trap 'rm -f "$temp_json"' EXIT
+
+jq \
+    --arg version "$version" \
+    --arg description "$description" \
+    --arg sha256 "$sha256" \
+    --arg url "$download_url" \
+    '.versions += [{
+        version: $version,
+        desc: $description,
+        sha256: $sha256,
+        url: $url,
+        minBobVersion: "1.8.0"
+    }]' \
+    "$json_file" > "$temp_json"
+
+mv "$temp_json" "$json_file"
+trap - EXIT
+
+echo "Created $archive_path"
+echo "SHA256: $sha256"

@@ -14,6 +14,13 @@
       "sha256": "1b6fdb97106c6c8e03e4a842774fa1676c5d51982333a84eeb5fe61960f610df",
       "url": "https://github.com/RyuSeongbin/bob-plugin-papago-translate/releases/download/v1.1.0/bob-plugin-papago-translate-1.1.0.bobplugin",
       "minBobVersion": "1.8.0"
+    },
+    {
+      "version": "1.1.1",
+      "desc": "Improve release reliability and repository cleanup.",
+      "sha256": "f396f3158b7a58da8c5e88fad2a603d53607b679e4167f5f60e229d5aa235264",
+      "url": "https://github.com/RyuSeongbin/bob-plugin-papago-translate/releases/download/v1.1.1/bob-plugin-papago-translate-1.1.1.bobplugin",
+      "minBobVersion": "1.8.0"
     }
   ]
 }

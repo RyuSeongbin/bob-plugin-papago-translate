@@ -39,6 +39,6 @@ Naver Cloud 当前价格页未列出 Papago Translation API 的固定免费额�
 
 
 ps: 
-1. 参考https://github.com/akl7777777大佬写的自用的bob papago韩语韩语插件. 
+1. 参考 https://github.com/akl7777777 编写的 Bob Papago 插件。
 2. Papago Translation API 文档: https://api.ncloud-docs.com/docs/en/ai-naver-papagonmt
 3. Papago Translation 使用指南: https://guide.ncloud-docs.com/docs/en/papagotranslation-api
