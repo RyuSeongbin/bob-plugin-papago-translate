@@ -1,6 +1,6 @@
 {
     "identifier": "com.bob-plugin-papago-translate",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "category": "translate",
     "name": "Papago",
     "summary": "Papago 翻译",
